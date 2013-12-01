@@ -1,0 +1,26 @@
+apply plugin: "groovy"
+apply plugin: "maven-publish"
+apply plugin: "eclipse"
+apply plugin: "idea"
+
+group = "ssfsx17"
+version = "0.0.1-SNAPSHOT"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile group: "org.codehaus.groovy", name: "groovy-all", version: "2.1.9" 
+}
+
+publishing {
+    publications {
+        mptestCorelib(MavenPublication) {
+            artifactId "mptest-corelib"
+            artifact jar
+        }
+    }
+}

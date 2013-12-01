@@ -1,0 +1,32 @@
+apply plugin: "groovy"
+apply plugin: "war"
+apply plugin: "maven-publish"
+apply plugin: "jetty"
+apply plugin: "eclipse"
+apply plugin: "idea"
+
+group = "ssfsx17"
+version = "0.0.1-SNAPSHOT"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile group: "ssfsx17", name: "mptest-corelib", version: "0.0.1-SNAPSHOT"
+    compile group: "org.codehaus.groovy", name: "groovy-all", version: "2.1.9" 
+}
+
+publishing {
+    publications {
+        mptestWebapp(MavenPublication) {
+            artifactId "mptest-webapp"
+            artifact war
+            artifact jar {
+                classifier "lib"
+            }
+        }
+    }
+}

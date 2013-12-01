@@ -1,0 +1,9 @@
+defaultTasks ":mptest-corelib:publishToMavenLocal", "mptest-webapp:war", ":mptest-client:installApp"
+
+project(":mptest-webapp") {
+    evaluationDependsOn(":mptest-corelib")
+}
+
+project(":mptest-client") {
+    evaluationDependsOn(":mptest-corelib")
+}

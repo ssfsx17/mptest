@@ -1,0 +1,1 @@
+include "mptest-corelib", "mptest-webapp", "mptest-client"
